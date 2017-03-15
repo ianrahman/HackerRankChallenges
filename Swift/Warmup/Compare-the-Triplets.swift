@@ -1,29 +1,25 @@
 // Enter your code here
 import Foundation
 
-// declare array of triplets
-var arr = [[Int]]()
+// read input
+let alice = readLine()!.components(separatedBy: " ").map{ Int($0)! }
+let bob = readLine()!.components(separatedBy: " ").map{ Int($0)! }
 
-// read array row-by-row
-for _ in 0..<2 {
-    arr.append(readLine()!.components(separatedBy: " ").map{ Int($0)! })
-}
-
-// flatten array
-let flat = arr.flatMap{ $0 }
+// store input as tuple
+let scores = (alice, bob)
 
 // declare count variables
-var alice: Int = 0
-var bob: Int = 0
+var aScore: Int = 0
+var bScore: Int = 0
 
 // compare scores and increment counts
-for i in 0..<3 {
-    if flat[i] > flat[i + 3] {
-        alice += 1
-    } else if flat[i] < flat[i+3] {
-        bob += 1
+for (a, b) in zip(scores.0, scores.1) {
+    if a > b {
+        aScore += 1
+    } else if b > a {
+        bScore += 1
     }
 }
 
 // print results
-print("\(alice) \(bob)")
+print("\(aScore) \(bScore)")
