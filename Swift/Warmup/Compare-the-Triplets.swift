@@ -1,4 +1,3 @@
-// Enter your code here
 import Foundation
 
 // read input
